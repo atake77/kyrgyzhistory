@@ -1,0 +1,723 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: "Londrina Solid", Arial, Helvetica, serif;
+	overflow-x: hidden;
+	background: #080808;
+}
+
+body:before {
+	content: "";
+	position: fixed;
+	height: 100vh;
+	width: 100vh;
+	left: -60vh;
+	top: 0;
+	border-radius: 100%;
+	background-image: url("/img/flag.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	z-index: 2;
+	animation: spin 300s ease 0s infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.body:after { 
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: -2;
+	background: #080808;
+	background-image: radial-gradient(2px 2px at 20px 30px, #fff, #fff0),
+		radial-gradient(1px 1px at 43px 75px, #fff, #fff0),
+		radial-gradient(2px 1px at 54px 184px, #fff, #fff0),
+		radial-gradient(2px 2px at 93px 47px, #e6e6e6, #fff0),
+		radial-gradient(1px 1px at 148px 87px, #e8e8e8, #fff0),
+		radial-gradient(1px 2px at 193px 137px, #fff, #fff0),
+		radial-gradient(1px 1px at 210px 154px, #f5f5f5, #fff0),
+		radial-gradient(2px 1px at 243px 102px, #e2e2e2, #fff0),
+		radial-gradient(2px 1px at 264px 184px, #fff, #fff0),
+		radial-gradient(2px 2px at 293px 44px, #efefef, #fff0),
+		radial-gradient(1px 1px at 223px 62px, #ececec, #fff0),
+		radial-gradient(1px 2px at 249px 162px, #fff, #fff0),
+		radial-gradient(1px 1px at 73px 99px, #eaeaea, #fff0),
+		radial-gradient(1px 2px at 163px 42px, #efefef, #fff0),
+		linear-gradient(-90deg, #20005850 0%, #000 50%, #20005850 100%);
+	background-repeat: repeat;
+	background-size: 333px 263px, 333px 293px, 333px 363px, 333px 463px,
+		433px 193px, 333px 203px, 633px 223px, 333px 263px, 333px 285px, 333px 179px,
+		333px 163px, 333px 363px, 533px 163px, 333px 213px, 100% 100%;
+}
+
+.content {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h1 {
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	background: linear-gradient(180deg, #000 65%, #000b, #0008, #0004, #0000);
+	margin: 0;
+	padding: 3vmin 0 8vmin 0;
+	position: fixed;
+	z-index: 1;
+	font-size: 5vmin;
+	letter-spacing: 0.25vmin;
+}
+
+.timeline {
+	position: relative;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 30vh 2vmin 2vmin 2vmin;
+}
+
+.timeline::before {
+	content: "";
+	position: fixed;
+	width: 100vw;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	background: linear-gradient(180deg, #fff0, #000 22vh 100vh);
+	height: 33vh;
+}
+
+.timeline::after {
+	content: "";
+	position: absolute;
+	width: 0.5vmin;
+	background: linear-gradient(
+		180deg,
+		red 0 47vh,
+		orange 0 296vh,
+		#0f760f 0 663vh,
+		#196099 0 751vh,
+		#fff 0 100%
+	);
+	background: #fff;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	margin-left: -0.25vmin;
+	z-index: -1;
+}
+
+.timeline li {
+	text-align: right;
+	background: red;
+	list-style-type: none;
+	padding: 0 4vmin 0 0;
+	position: relative;
+	background-color: inherit;
+	width: 50%;
+	perspective: 30vmin;
+	perspective-origin: bottom;
+}
+
+.timeline li:nth-child(even) {
+	text-align: left;
+	left: 50%;
+	padding: 0 0 0 4vmin;
+}
+
+.timeline li:before {
+	content: " ";
+	height: 0;
+	position: absolute;
+	top: 1vmin;
+	width: 0;
+	z-index: 1;
+	right: 3vmin;
+	border: medium solid #fff;
+	border-width: 1vmin 0 1vmin 1vmin;
+	border-color: #fff0 #fff0 #fff0 #fff;
+}
+
+.timeline li:nth-child(even):before {
+	border-color: #fff0 #fff #fff0 #fff0;
+	border-width: 1vmin 1vmin 1vmin 0;
+	right: inherit;
+	left: 3vmin;
+}
+
+.timeline li:after {
+	content: "";
+	position: absolute;
+	width: 4.5vmin;
+	height: 4.5vmin;
+	right: -2.25vmin;
+	background-color: white;
+	border: 0.5vmin solid #000;
+	top: -0.25vmin;
+	border-radius: 50%;
+	z-index: 1;
+	background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/1200px-Flag_of_Kyrgyzstan.svg.png);
+	background-size: cover;
+	background-position: center;
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+}
+
+.timeline li:nth-child(even):after {
+	left: -2.25vmin;
+}
+
+.timeline li > * {
+	width: 100%;
+	display: inline-block;
+	padding: 0.5vmin;
+}
+
+.timeline li h2 {
+	position: absolute;
+	top: -40vh;
+	margin: 0;
+	left: 0;
+}
+
+.timeline li time {
+	background: #fff;
+	float: right;
+	width: auto;
+	font-size: 3vmin;
+	border-radius: 0.25vmin;
+}
+
+.timeline li:nth-child(even) time {
+	float: left;
+}
+
+.timeline li time span {
+	font-size: 1.5vmin;
+	line-height: 0.25vmin;
+	top: -1vmin;
+	position: relative;
+	margin-left: 0.5vmin;
+	color: #666;
+}
+
+.timeline li time span em {
+	font-size: 1.1vmin;
+	text-transform: uppercase;
+	font-style: normal;
+	color: #999;
+	float: right;
+}
+
+.timeline li time strong {
+	font-weight: normal;
+	color: red;
+}
+
+.timeline li > strong {
+	color: #cddc39;
+	font-weight: 300;
+	padding: 0.25vmin 0;
+}
+
+.timeline li > strong span {
+	float: right;
+	background: #000000;
+	padding: 0.5vmin 1vmin;
+	border-radius: 0.25vmin;
+	width: 26vmin;
+	font-size: 1.85vmin;
+	letter-spacing: 0.025vmin;
+}
+
+.timeline li:nth-child(even) > strong span {
+	float: left;
+}
+
+.timeline li > span a {
+	position: absolute;
+	top: 8.9vmin;
+	right: 4.5vmin;
+	width: 25vmin;
+	height: 10vmin;
+	background: #ffffff80;
+	text-decoration: none;
+	text-align: center;
+	font-weight: 100;
+	font-size: 5vmin;
+	line-height: 10vmin;
+	color: #000000ad;
+	opacity: 0;
+}
+
+.timeline li:nth-child(even) > span a {
+	right: inherit;
+}
+
+.timeline li > span a:before {
+	content: "+";
+}
+
+.timeline li > span a:hover {
+	opacity: 1;
+}
+
+.timeline li > span {
+	overflow: hidden;
+	transition: all 0.5s ease 0s;
+	background: #043f5c;
+	right: 2vmin;
+	margin-top: -0.5vmin;
+	width: auto;
+	color: #fff;
+	border-radius: 0.25vmin;
+	display: inline-grid;
+	font-weight: 100;
+	letter-spacing: 0.1vmin;
+}
+
+.timeline li:nth-child(even) > span {
+	right: initial;
+	left: 2vmin;
+	transform-origin: left top;
+}
+
+.timeline li:last-of-type {
+	margin-bottom: 45vmin;
+}
+
+.timeline li > span:before {
+	content: "";
+	float: right;
+	width: 25vmin;
+	height: 10vmin;
+	background: #fff;
+	background-size: cover;
+	background-position: center;
+}
+
+.timeline li:nth-child(1) > span:before {
+	background-image: url(https://ak-sai.com/wp-content/uploads/1-11.jpg);
+}
+
+.timeline li:nth-child(2) > span:before {
+	background-image: url(https://arheologija.ru/wp-content/uploads/ranniy-zheleznyiy-vek-stepnoy-evrazii-2.jpg);
+}
+
+.timeline li:nth-child(3) > span:before {
+	background-image: url(https://fergana.ru/siteapi/media/images/2d3affcb-d7db-4dad-a576-738c14a7e151.jpeg);
+}
+
+.timeline li:nth-child(4) > span:before {
+	background-image: url(https://www.open.kg/uploads/posts/2021-11/1637685554_screenshot_21.png);
+	background-position: center 70%;
+}
+
+.timeline li:nth-child(5) > span:before {
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Sima_Qian_%28painted_portrait%29.jpg/800px-Sima_Qian_%28painted_portrait%29.jpg);
+	background-position: center 85%;
+}
+
+.timeline li:nth-child(6) > span:before {
+	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhDYs40cME_hC5iZIJZ4HsRdC7m-d-JWp6pQ&s);
+}
+
+.timeline li:nth-child(7) > span:before {
+	background-image: url(https://i.ytimg.com/vi/mVsO_NhwnaY/sddefault.jpg);
+}
+
+.timeline li:nth-child(8) > span:before {
+	background-image: url(https://gdb.rferl.org/b374f0ab-dd07-46d5-8d7b-20f5c0a0f694_w1200_r1.jpg);
+}
+
+.timeline li:nth-child(9) > span:before {
+	background-image: url(https://www.open.kg/uploads/posts/2022-07/thumbs/1657450224_screenshot_6.png);
+}
+
+.timeline li:nth-child(10) > span:before {
+	background-image: url(https://topwar.ru/uploads/posts/2011-05/1305038713_30806192_kolonna_pole.jpg);
+	background-position: center top;
+}
+
+.timeline li:nth-child(11) > span:before {
+	background-image: url(https://пфопобеда.рф/wp-content/uploads/2022/08/1.jpg);
+	background-position: center 50%;
+	background-size: 110%;
+}
+
+.timeline li:nth-child(12) > span:before {
+	background-image: url(https://st-1.akipress.org/cdn-st-0/qdA/I/1736569.11dd4589379df63de592c8ea1a550423.jpg);
+	background-position: center top;
+}
+
+.timeline li:nth-child(13) > span:before {
+	background-image: url(https://eimu.edu.kg/uploads/images/2021/09/image_750x_61456657baba7.jpg);
+}
+
+.timeline li:nth-child(14) > span:before {
+	background-image: url(https://paodkb.org/uploads/ckeditor/pictures/4067/content_IMG_3508.jpeg);
+	background-position: center 75%;
+}
+
+.timeline li:nth-child(15) > span:before {
+	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy7p0fsaCPEYVSgb7tP8xvh2X4pkcmLaeWOA&s);
+	background-position: center top;
+}
+
+.timeline li:nth-child(16) > span:before {
+	background-image: url(https://asiamountains.net/assets/cache_image/assets/lib/resized/370/1600x1063_0x0_d0b.jpg);
+}
+
+.timeline li:nth-child(17) > span:before {
+	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSu2pUDkVJPssQHQHDEBXFVOaOz2kSsHbGSA&s);
+	background-position: center 10%;
+}
+
+.timeline li:nth-child(18) > span:before {
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Almazbek_Atambayev_%28cropped%29_2.jpg/1200px-Almazbek_Atambayev_%28cropped%29_2.jpg);
+	background-position: center 37%;
+}
+
+.timeline li > span:after {
+	content: "";
+	width: 25vmin;
+	text-shadow: 0 0 1px #000, 0 0 1px #000;
+	font-size: 1.85vmin;
+}
+
+.timeline li:nth-child(1) > span:after {
+	content: "Поселения первых групп древнейших людей на территории Киргизстана.";
+}
+
+.timeline li:nth-child(2) > span:after {
+	content: "железный век в истории кыргызстана.";
+}
+
+.timeline li:nth-child(3) > span:after {
+	content: "Нашествие на Среднюю Азию Александра Македонского.";
+}
+
+.timeline li:nth-child(4) > span:after {
+	content: "Обоснование древних киргизов в Восточном Тянь-Шане (долина Манаса)";
+}
+
+.timeline li:nth-child(5) > span:after {
+	content: "Первое упоминание о древних киргизах в китайском источнике. Вхождение киргизского владения в состав Хуннского государства (Сыма Цянь).";
+}
+
+.timeline li:nth-child(6) > span:after {
+	content: "Признание Восточно-Тюркским каганом Капаганом каганского звания киргизского правителя Барсбека, Женитьба Барсбека на дочери кагана Элтерис.";
+}
+
+.timeline li:nth-child(7) > span:after {
+	content: "Киргизский каганат — древнее государство, существовавшее в Центральной Азии, в частности на территории современного Кыргызстана и сопредельных регионов. Оно сформировалось в IX веке н. э. после распада Уйгурского каганата и просуществовало около двух веков.";
+}
+
+.timeline li:nth-child(8) > span:after {
+	content: "Уркун — трагический эпизод в истории Кыргызстана, связанный с восстанием 1916 года против царской России. Это одно из самых значимых событий в истории кыргызского народа, которое стало символом борьбы за независимость и национальное достоинство.";
+}
+
+.timeline li:nth-child(9) > span:after {
+	content: "1917 год стал переломным моментом в истории Кыргызстана и всей Средней Азии. Это был год революций в Российской империи (Февральской и Октябрьской), что привело к значительным политическим, социальным и экономическим изменениям, а также к активизации национально-освободительного движения народов региона.";
+}
+
+.timeline li:nth-child(10) > span:after {
+	content: "Великая Отечественная война началась 22 июня 1941 года. В этот день нацистская Германия и её союзники без объявления войны напали на Советский Союз, нарушив подписанный в 1939 году пакт Молотова-Риббентропа о ненападении.";
+}
+
+.timeline li:nth-child(11) > span:after {
+	content: "Конец Великой Отечественной войны — это долгожданная победа, которая наступила в мае 1945 года после четырёх лет ожесточённых сражений. Заключительный этап войны ознаменовался крупнейшими военными операциями, освобождением Европы и капитуляцией нацистской Германии.";
+}
+
+.timeline li:nth-child(12) > span:after {
+	content: "В 1979 году Токтогульская ГЭС была запущена в полную силу.";
+}
+
+.timeline li:nth-child(13) > span:after {
+	content: "1989 году 23 сентября приняли государственный Кыргызский язык .";
+}
+
+.timeline li:nth-child(14) > span:after {
+	content: "1991 году 31 Августа была принята Декларация о не зависимости Кыргызстана.";
+}
+
+.timeline li:nth-child(15) > span:after {
+	content: "12 октября 1991 года Аскар Акаев был принят на пост Презяидента Кыргызской республики";
+}
+
+.timeline li:nth-child(16) > span:after {
+	content: "в 2000 году городу ОШ исполнилось 3000 лет после основания.";
+}
+
+.timeline li:nth-child(17) > span:after {
+	content: "Революция 2010 года были самыми страшными днями за последнее десятилетие в истории Кыргызстана.В итоге был убран с поста президента Курманбек Бакиев.";
+}
+
+.timeline li:nth-child(18) > span:after {
+	content: "1 Декабря 2011 года был избран на пост президента Кыргызский Республики Алмазбек Атамбаев.";
+}
+
+.selector {
+	font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+	font-size: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 10vmin;
+	background: linear-gradient(180deg, #fff0 0 32%, #fff8 0 34%, #fff0 0 100%);
+	z-index: 3;
+	padding-top: 6vmin;
+}
+
+.selector a {
+	opacity: 1;
+	/* position: absolute; */
+	margin: 1px;
+	left: 0;
+	text-decoration: none;
+	background: white;
+	padding: 0.15vmin 0.25vmin 0.1vmin;
+	min-width: 2vw;
+	display: inline-block;
+	color: red;
+	border-left: 1px solid #000;
+	font-size: 1.65vmin;
+}
+
+.selector a:before {
+	content: "";
+	width: 2.5vmin;
+	height: 2.5vmin;
+	position: absolute;
+	top: -4vmin;
+	background: url(https://josetxu.com/demos/img/earth.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	box-shadow: 0 0 1vmin 0 #000;
+	border-radius: 100%;
+}
+
+.selector a:after {
+	content: "";
+	margin-left: 0.25vmin;
+	font-size: 1.5vmin;
+	position: absolute;
+	border: 0.75vmin solid transparent;
+	border-bottom-color: #fff;
+	top: -1.5vmin;
+	left: 0.5vmin;
+}
+
+.selector a span {
+	font-size: 1.25vmin;
+	color: #333;
+	margin-left: 0.25vmin;
+}
+
+a strong {
+	background: #1c1c1c;
+	color: #cddc39;
+	position: absolute;
+	top: 11vmin;
+	font-weight: 300;
+	padding: 0.5vmin 0.75vmin;
+	width: max-content;
+	border-radius: 0.25vmin;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	transition: top 0.1s ease 0s;
+	z-index: -1;
+}
+
+a:hover strong {
+	top: -9vmin;
+	transition: top 0.5s ease 0s;
+}
+
+a strong:before {
+	content: "";
+	border: 0.85vmin solid #fff0;
+	border-top-color: #1c1c1c;
+	position: absolute;
+	bottom: -1.7vmin;
+}
+
+.timeline li:nth-child(2) {
+	margin-top: 40vh;
+}
+.timeline li:nth-child(3) {
+	margin-top: 13vh;
+}
+.timeline li:nth-child(4) {
+	margin-top: 62vh;
+}
+.timeline li:nth-child(5) {
+	margin-top: 30vh;
+}
+.timeline li:nth-child(6) {
+	margin-top: 9vh;
+}
+.timeline li:nth-child(7) {
+	margin-top: 19vh;
+}
+.timeline li:nth-child(8) {
+	margin-top: 8vh;
+}
+.timeline li:nth-child(9) {
+	margin-top: 25vh;
+}
+.timeline li:nth-child(10) {
+	margin-top: 9vh;
+}
+.timeline li:nth-child(11) {
+	margin-top: 2vh;
+}
+.timeline li:nth-child(12) {
+	margin-top: 22vh;
+}
+.timeline li:nth-child(13) {
+	margin-top: 3vh;
+}
+.timeline li:nth-child(14) {
+	margin-top: 8vh;
+}
+.timeline li:nth-child(15) {
+	margin-top: 4vh;
+}
+.timeline li:nth-child(16) {
+	margin-top: 5vh;
+}
+.timeline li:nth-child(17) {
+	margin-top: 55vh;
+}
+.timeline li:nth-child(18) {
+	margin-top: 10vh;
+}
+
+/*** PORTRAIT ***/
+
+@media only screen and (orientation: portrait) {
+	body:before {
+		left: -95vh;
+	}
+
+	.timeline li time {
+		font-size: 5vmin;
+	}
+
+	.timeline li > strong span,
+	.timeline li > span:after {
+		font-size: 2.5vmin;
+	}
+
+	.selector {
+		width: 12vw;
+		background: linear-gradient(90deg, #fff0 0 15%, #fff8 0 17%, #fff0 0 100%);
+		top: 0;
+		right: 0;
+		height: 100vh;
+	}
+	.selector a {
+		display: block;
+		left: 4vmin;
+		font-size: 2.25vmin;
+	}
+
+	.selector a:before {
+		top: 0vmin;
+		left: -3.5vmin;
+	}
+
+	.selector a:after {
+		border-bottom-color: #fff0;
+		border-right-color: #fff;
+		top: 0.5vmin;
+		left: -1.65vmin;
+	}
+
+	.selector a strong,
+	.selector a:hover strong {
+		display: none;
+	}
+
+	a[href="#Поселения первых групп"] {
+		top: 2vh;
+	}
+	a[href="#Железный век"] {
+		top: 7vh;
+	}
+	a[href="#Нашествие Македонского"] {
+		top: 11vh;
+	}
+	a[href="#поселение"] {
+		top: 21vh;
+	}
+	a[href="#первое упоминание"] {
+		top: 32vh;
+	}
+	a[href="#признание Капагана"] {
+		top: 36vh;
+	}
+	a[href="#Кыргызский Каганат"] {
+		top: 42vh;
+	}
+	a[href="#Уркун"] {
+		top: 45.5vh;
+	}
+	a[href="#образование организаций"] {
+		top: 52vh;
+	}
+	a[href="#ВОВ"] {
+		top: 57vh;
+	}
+	a[href="#конец войны"] {
+		top: 60.5vh;
+	}
+	a[href="#Токтогульская ГЭС"] {
+		top: 67vh;
+	}
+	a[href="#Язык"] {
+		top: 73vh;
+	}
+	a[href="#НЕЗАВИСИМОСТЬ"] {
+		top: 78vh;
+	}
+	a[href="#Первый Президент"] {
+		top: 81vh;
+	}
+	a[href="#ОШ"] {
+		top: 84vh;
+	}
+	a[href="#Революция"] {
+		top: 90vh;
+	}
+	a[href="#Алмазбек Атамбаев"] {
+		top: 95vh;
+	}
+}
