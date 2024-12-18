@@ -23,7 +23,7 @@ body:before {
 	left: -60vh;
 	top: 0;
 	border-radius: 100%;
-	background-image: url("/flag.svg");
+	background-image: url("flag.svg");
 	background-repeat: no-repeat;
 	background-size: contain;
 	z-index: 2;
